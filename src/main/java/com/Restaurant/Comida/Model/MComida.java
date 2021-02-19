@@ -16,7 +16,7 @@ public class MComida {
         
         try{
             dataConect = new Conect();
-            String query = 'SELECT id,Nombre,Caducidad,Procion FROM comida where ' + pComida.nombre +' = "'+cComida.getNombre() +'"';
+            String query = "SELECT id,Nombre,Caducidad,Procion FROM comida where "+pComida.nombre +" = '"+cComida.getNombre() +"'";
             //String query= "SELECT * FROM comida where nombre ='espagueti'";
             Statement st =  dataConect.conexionMYSQL().createStatement();
             ResultSet rs =  st.executeQuery(query);
