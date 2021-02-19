@@ -14,21 +14,26 @@ import java.util.HashMap;
 import java.util.Map;
 
 import com.Restaurant.Comida.Cataloge.CComida;
+import com.Restaurant.Comida.View.ViewComida;
 
 @RestController
 public class ServicioComida {
     @RequestMapping(value="/")
 	public String index() {
-		return "im alive";
+		return "im alive =D";
 	}
 
     @RequestMapping(value = "/comida",method = RequestMethod.GET)
-    public ResponseEntity<Object> getComida(@RequestBody CComida cComida){
+    public ResponseEntity<Object> getComida(@RequestBody CComida cComida) throws Exception {
 
-        cComida.setNombre("");
-        if (cComida.getNombre() == null){
-            
-        }
+        ViewComida vistComida = new ViewComida();
+        cComida = vistComida.retrieveComida(cComida);
+        return new ResponseEntity<>(cComida,HttpStatus.OK);
+       
+    }
+    @RequestMapping(value ="/comida",method = RequestMethod.PUT)
+    public ResponseEntity<Object> setComida(@RequestBody CComida cComida){
+        
         return new ResponseEntity<>(cComida,HttpStatus.OK);
     }
 
