@@ -37,4 +37,24 @@ public class MComida {
             }
             return cComida;
     }
+
+    public CComida actualiza(CComida cComida) throws Exception {
+
+        Conect dataConect =null;
+
+        try{
+            dataConect = new Conect();
+            String query = "UPDATE comida SET" + pComida.nombre +" = 'value'" + " WHERE id ="+ cComida.getId();  
+            Statement st =  dataConect.conexionMYSQL().createStatement();
+            ResultSet rs =  st.executeQuery(query);
+            cComida.setNombre(rs.getString("Nombre"));
+
+            //String query = "UPDATE comida SET" + pComida.nombre +" =value" + " WHERE id ='"  + cComida.getId()+"'";
+
+        }catch(Exception e){
+            throw e;
+        }
+
+        return cComida;
+    }
 }

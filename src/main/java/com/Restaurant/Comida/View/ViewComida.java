@@ -10,4 +10,9 @@ public class ViewComida{
 
        return mComida.consulta(cComida);
     }
+
+    public CComida updateComuda(CComida cComida) throws Exception {
+        MComida mComida =new MComida();
+        return mComida.actualiza(cComida);
+    }
 }

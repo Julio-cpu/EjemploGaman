@@ -32,10 +32,13 @@ public class ServicioComida {
        
     }
     @RequestMapping(value ="/comida",method = RequestMethod.PUT)
-    public ResponseEntity<Object> setComida(@RequestBody CComida cComida){
-        
+    public ResponseEntity<Object> setComida(@RequestBody CComida cComida) throws Exception {
+        ViewComida vistComida = new ViewComida();
+        cComida = vistComida.updateComuda(cComida);
         return new ResponseEntity<>(cComida,HttpStatus.OK);
     }
+
+    
 
 
 }
