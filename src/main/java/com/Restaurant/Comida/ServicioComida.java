@@ -20,7 +20,8 @@ import com.Restaurant.Comida.View.ViewComida;
 public class ServicioComida {
     @RequestMapping(value="/")
 	public String index() {
-		return "im alive =D";
+		return "im alive";
+
 	}
 
     @RequestMapping(value = "/comida",method = RequestMethod.GET)
