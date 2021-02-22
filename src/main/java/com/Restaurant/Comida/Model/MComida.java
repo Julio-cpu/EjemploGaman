@@ -57,4 +57,20 @@ public class MComida {
 
         return cComida;
     }
+
+    public CComida delete(CComida cComida) throws Exception {
+        Conect dataConect=null;
+        
+        try {
+            dataConect=new Conect();
+            String query = "DELETE comida WHERE id=" + cComida.getId();
+            Statement st =  dataConect.conexionMYSQL().createStatement();
+            ResultSet rs =  st.executeQuery(query);
+            
+
+        } catch (Exception e) {
+            throw e;
+        }
+        return cComida;
+    }
 }

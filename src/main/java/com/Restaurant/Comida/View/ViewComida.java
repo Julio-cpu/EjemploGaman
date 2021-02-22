@@ -15,4 +15,9 @@ public class ViewComida{
         MComida mComida =new MComida();
         return mComida.actualiza(cComida);
     }
+
+    public CComida deleteComida(CComida cComida) throws Exception {
+        MComida mComida=new MComida();
+        return mComida.delete(cComida);
+    }
 }

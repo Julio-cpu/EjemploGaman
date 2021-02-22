@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.net.http.HttpResponse.ResponseInfo;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -36,6 +38,13 @@ public class ServicioComida {
     public ResponseEntity<Object> setComida(@RequestBody CComida cComida) throws Exception {
         ViewComida vistComida = new ViewComida();
         cComida = vistComida.updateComuda(cComida);
+        return new ResponseEntity<>(cComida,HttpStatus.OK);
+    }
+    @RequestMapping(value = "/comdia/delete", method = RequestMethod.DELETE)
+    public ResponseEntity<Object> delComida(@RequestBody CComida cComida) throws Exception {
+        ViewComida vistComida=new ViewComida();
+        cComida=vistComida.deleteComida(cComida);
+
         return new ResponseEntity<>(cComida,HttpStatus.OK);
     }
 
